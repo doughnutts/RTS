@@ -54,51 +54,57 @@
 
      <form class="fl-left clearfix">
       <div class="form-group row">
-       <div class="col-sm-3">
-        <label for="c1">Source Pool</label>
+       <div class="col-sm-4">
+        <label for="c1">Source Pool Name</label>
         <select id="c1" class="selectsearch form-control" required>
-         <option value="10001965">10001965 - Pivotal Cloud Foundry</option>
+         <option value="PCF">Pivotal Cloud Foundry</option>
         </select>
        </div>
-       <div class="col-sm-3">
-        <label for="c5">PTS</label>
+       <div class="col-sm-4">
+        <label for="c2">Source Pool Type</label>
+        <input type="text" class="form-control" id="c2" placeholder="" value="ABC123XYZ890" disabled required>
+       </div>
+       <div class="col-sm-4">
+        <label for="c3">Source Pool ID</label>
+        <input type="text" class="form-control" id="c3" placeholder="" value="10001965" disabled required>
+       </div>
+      </div>
+      <div class="form-group row">
+       <div class="col-sm-4">
+        <label for="c4">Type</label>
+        <select id="c4" class="selectsearch form-control" required>
+         <option value="training">Training</option>
+        </select>
+       </div>
+       <div class="col-sm-4">
+        <label for="c5">PTS ID</label>
         <select id="c5" class="selectsearch form-control" required>
          <option value="1100025001">1100025011</option>
         </select>
        </div>
-       <div class="col-sm-6">
+       <div class="col-sm-4">
         <label for="c6">PTS Description</label>
-        <input type="text" class="form-control" id="c6" placeholder="" value="CST-000000-others - e. Other framework build and maintenance" disabled required>
+        <input type="text" class="form-control" id="c6" placeholder="" value="e. Other framework build and maintenance" disabled required>
        </div>
       </div>
       <div class="form-group row">
-       <div class="col-sm-3">
-        <label for="c4">Job Type</label>
-        <select id="c4" class="selectsearch form-control" required>
-         <option value="training">011-CST-Training</option>
-        </select>
-       </div>
-       <div class="col-sm-3">
-        <label for="c7">Location</label>
+       <div class="col-sm-4">
+        <label for="c7">Country</label>
         <select id="c7" class="selectsearch form-control" required>
-         <option value="SGP">SGP-Singapore</option>
+         <option value="SIN">Singapore</option>
         </select>
        </div>
-       <div class="col-sm-3">
-        <label for="c8">Staff PC Code</label>
-        <input type="text" class="form-control" id="c8" placeholder="" value="123ABC890ZXC" disabled required>
-       </div>
-       <div class="col-sm-3">
-        <label for="c8">UR Number</label>
+       <div class="col-sm-4">
+        <label for="c8">UR</label>
         <input type="text" class="form-control" id="c8" placeholder="" value="CST 000000 Others" disabled required>
        </div>
+       <div class="col-sm-4">
+        <label for="c9">UR Description</label>
+        <input type="text" class="form-control" id="c9" placeholder="" value="e. Other framework build and maintenance" disabled required>
+       </div>
       </div>
       <div class="form-group row">
-      <div class="col-sm-3">
-        <label for="c8">Man Hours</label>
-        <input type="text" class="form-control" id="c8" placeholder="" value="" required>       
-      </div>
-       <div class="col-sm-7">
+       <div class="col-sm-10">
         <label for="c0">Date Range</label>
         <div class="input-daterange input-group" id="datepicker">
          <input type="text" class="input-small form-control" name="start" id="c0a" />
@@ -137,28 +143,48 @@
 
      <table class="table table-borderedx table-sm table-reponsive table-hover pastclocks col-12">
       <thead class="thead-default">
-       <tr><th>Date</th><th>Source Pool ID</th><th>PTS ID</th><th>Type</th><th>Hours</th><th class="text-center">Edit/Copy/Delete</th></tr>
+       <tr><th>Date</th><th>Source Pool ID</th><th>PTS ID</th><th>Type</th><th>Hours</th><th class="text-center">Edit/Delete</th></tr>
       </thead>
       <tbody>
        <tr>
         <th scope="row">02/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
        <tr>
         <th scope="row">03/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
        <tr>
         <th scope="row">04/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
        <tr>
         <th scope="row">05/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
        <tr>
         <th scope="row">06/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+       </tr>
+       <tr>
+        <th scope="row">07/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+       </tr>
+       <tr>
+        <th scope="row">08/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+       </tr>
+       <tr>
+        <th scope="row">09/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+       </tr>
+       <tr>
+        <th scope="row">10/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+       </tr>
+       <tr>
+        <th scope="row">11/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
+        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
       </tbody>
      </table>
