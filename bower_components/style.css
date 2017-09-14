@@ -6,6 +6,7 @@
 }
 
 .masthead {
+  position: fixed;
   display: table;
   width: 100%;
   height: auto;

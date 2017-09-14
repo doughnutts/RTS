@@ -40,10 +40,22 @@ img::-moz-selection {background: transparent;}
   background-color: transparent;
 }
 .btn-default:focus, .btn-default:hover {
-    color: black;
+    color: white;
     border: 1px solid #42DCA3;
     outline: none;
     background-color: #42DCA3;
+}
+
+.btn-primary {
+  color: #007bff;
+  border: 1px solid #007bff;
+  background-color: transparent;
+}
+.btn-primary:focus, .btn-primary:hover {
+    color: white;
+    border: 1px solid #007bff;
+    outline: none;
+    background-color: #007bff;
 }
 
 .btn-warning {
@@ -52,7 +64,7 @@ img::-moz-selection {background: transparent;}
   background-color: transparent;
 }
 .btn-warning:focus, .btn-warning:hover {
-    color: black;
+    color: white;
     border: 1px solid #ffc107;
     outline: none;
     background-color: #ffc107;
@@ -64,7 +76,7 @@ img::-moz-selection {background: transparent;}
   background-color: transparent;
 }
 .btn-danger:focus, .btn-danger:hover {
-    color: black;
+    color: white;
     border: 1px solid #d9534f;
     outline: none;
     background-color: #d9534f;
@@ -108,5 +120,5 @@ footer p {font-size: 14px;margin: 0;}
 .footer-middle a:hover {color:white;}
 .footer-bottom p > a {color:white;}
 .footer-bottom p > a:hover {color:#d9534f;}
-.pastclocks i{width:33.333%;padding:4px 5px;text-align:center;float:left;}
+.pastclocks i{width:100%;padding:4px 5px;text-align:center;float:left;}
 .dropdown:hover>.dropdown-menu {display: block;}

@@ -19,7 +19,6 @@
 
 </head>
 <body>
-
 <nav class="navbar navbar-dark navbar-toggleable-md fixed-top navbar-expand-lg" id="mainNav">
 <div class="container">
   <a class="navbar-brand" href="#"><img src="http://marinabaysailing.sg/assets/DBS%20logo.png" width="110"></a>
@@ -38,13 +37,14 @@
 
 <ol class="breadcrumb">
 <div class="container">
-  <li class="breadcrumb-item"><a href="#">Home</a></li>
-  <li class="breadcrumb-item"><a href="#">Library</a></li>
-  <li class="breadcrumb-item active">Data</li>
+  <li class="breadcrumb-item">Home</li>
+  <li class="breadcrumb-item active">Timesheet</li>
   </div>
 </ol>
 
-
+<style>
+  .modal-body span.badge {width:100%;overflow:auto;padding:8px 10px;}
+</style>
 
             <div class="modal fade" id="viewmodal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
@@ -55,40 +55,39 @@
                         </div>
                         <!-- body: -->
                         <div class="modal-body">
-                        <h5><span class="badge badge-default uid"></span></h5>
+                        <!-- <h5><span class="badge badge-default uid"></span></h5> -->
                         <!--  -->
                         <div class="col-sm-12 clearfix">
                           <div class="col-sm-6 pull-left">
-                            <span>Source Pool: <span class="badge badge-default">10001965 - Pivotal Cloud Foundry</span></span><br>
-                            <span>PTS: <span class="badge badge-default">1100025011</span></span><br>
-                            <span>PTS Description: <span class="badge badge-default">-</span></span>
+                            <span>Source Pool: <br><span class="badge badge-default" id="m1">10001965 - Pivotal Cloud Foundry</span></span><br>
+                            <span>PTS: <br><span class="badge badge-default" id="m2">1100025011</span></span><br>
+                            <span>PTS Description: <br><span class="badge badge-default" id="m3">CST-000000-others - e. Other framework build and maintenance</span></span>
                           </div>
                           <div class="col-sm-6 pull-left">
-                            <span>Job Type: <span class="badge badge-default">011-CST-Training</span></span><br>
-                            <span>Location: <span class="badge badge-default">SGP-Singapore</span></span><br>
-                            <span>Staff PC Code: <span class="badge badge-default">-</span></span><br>
-                            <span>UR Number: <span class="badge badge-default">-</span></span>
+                            <span>Staff PC Code: <br><span class="badge badge-default" id="m4">-</span></span><br>
+                            <span>UR Number: <br><span class="badge badge-default" id="m5">-</span></span><br>
+                            <span>Date: <br><span class="badge badge-default" id="m6">-</span></span>
                           </div>
-                        </div>
+                        </div><br>
                         <div class="col-sm-12">
                         <form>
       <div class="form-group row">
-      <div class="col-sm-2">
-        <label for="c8">Man Hours</label>
-        <input type="number" min="0" max="24" class="form-control" id="c8" placeholder="" value="" required>       
+      <div class="col-2">
+        <label for="m7">Man Hours</label>
+        <input type="number" min="0" max="24" step="0.5" class="form-control" id="m7" placeholder="" value="" oninput="numCheck(this)" required>       
       </div>
-       <div class="col-sm-7">
-        <label for="c0">Date Range</label>
-        <div class="input-daterange input-group" id="datepicker">
-         <input type="text" class="input-small form-control" name="start" id="c0a" />
-         <span class="input-group-addon">to</span>
-         <input type="text" class="input-small form-control" name="end" id="c0b" />
-        </div>
-       </div>
-       <div class="col-sm-3">
-        <label for="c0c">Include Weekends</label>
-        <input type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="warning" id="c7c" class="col-12">
-       </div>
+      <div class="col-5">
+         <label for="m8">Job Type</label>
+         <select id="m8" class="selectsearch form-control col-12" required style="width:100%">
+          <option value="training">011-CST-Training</option>
+         </select>       
+      </div>
+      <div class="col-5">
+         <label for="m9">Location</label>
+        <select id="m9" class="selectsearch form-control" required style="width:100%">
+         <option value="SGP">SGP-Singapore</option>
+        </select>      
+      </div>
       </div>
       <div class="form-group row">
        <div class="col-sm-12">
@@ -101,8 +100,8 @@
                         </div>
                         <!-- :body -->
                         <div class="modal-footer">
-                        <button class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">submit</button>
+                        <button class="btn btn-primary" data-dismiss="modal">Copy</button>
+                        <button type="button" class="btn btn-default">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -123,14 +122,14 @@
         </select>
        </div>
        <div class="col-sm-3">
-        <label for="c5">PTS</label>
-        <select id="c5" class="selectsearch form-control" required>
+        <label for="c2">PTS</label>
+        <select id="c2" class="selectsearch form-control" required>
          <option value="1100025001">1100025011</option>
         </select>
        </div>
        <div class="col-sm-6">
-        <label for="c6">PTS Description</label>
-        <input type="text" class="form-control" id="c6" placeholder="" value="CST-000000-others - e. Other framework build and maintenance" disabled required>
+        <label for="c3">PTS Description</label>
+        <input type="text" class="form-control" id="c3" placeholder="" value="CST-000000-others - e. Other framework build and maintenance" disabled required>
        </div>
       </div>
       <div class="form-group row">
@@ -141,41 +140,41 @@
         </select>
        </div>
        <div class="col-sm-3">
-        <label for="c7">Location</label>
-        <select id="c7" class="selectsearch form-control" required>
+        <label for="c5">Location</label>
+        <select id="c5" class="selectsearch form-control" required>
          <option value="SGP">SGP-Singapore</option>
         </select>
        </div>
        <div class="col-sm-3">
-        <label for="c8">Staff PC Code</label>
-        <input type="text" class="form-control" id="c8" placeholder="" value="123ABC890ZXC" disabled required>
+        <label for="c6">Staff PC Code</label>
+        <input type="text" class="form-control" id="c6" placeholder="" value="123ABC890ZXC" disabled required>
        </div>
        <div class="col-sm-3">
-        <label for="c8">UR Number</label>
-        <input type="text" class="form-control" id="c8" placeholder="" value="CST 000000 Others" disabled required>
+        <label for="c7">UR Number</label>
+        <input type="text" class="form-control" id="c7" placeholder="" value="CST 000000 Others" disabled required>
        </div>
       </div>
       <div class="form-group row">
       <div class="col-sm-3">
         <label for="c8">Man Hours</label>
-        <input type="number" min="0" max="24" class="form-control" id="c8" placeholder="" value="" required>       
+        <input type="number" min="0" max="24" step="0.5" class="form-control" id="c8" placeholder="" value="" oninput="numCheck(this)" required>       
       </div>
        <div class="col-sm-7">
-        <label for="c0">Date Range</label>
+        <label for="c9">Date Range</label>
         <div class="input-daterange input-group" id="datepicker">
-         <input type="text" class="input-small form-control" name="start" id="c0a" />
+         <input type="text" class="input-small form-control" name="start" id="c9a" />
          <span class="input-group-addon">to</span>
-         <input type="text" class="input-small form-control" name="end" id="c0b" />
+         <input type="text" class="input-small form-control" name="end" id="c9b" />
         </div>
        </div>
        <div class="col-sm-2">
-        <label for="c0c">Include Weekends</label>
+        <label for="c9c">Include Weekends</label>
         <input type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="warning" id="c7c" class="col-12">
        </div>
       </div>
       <div class="form-group row">
        <div class="col-sm-12">
-        <label for="c11">Remarks</label>
+        <label for="c10">Remarks</label>
         <textarea name="name" rows="8" class="col-sm-12 form-control" id="c11" placeholder="Type here.." required></textarea>
        </div>
       </div>
@@ -192,20 +191,20 @@
   <div class="table-responsive">
      <table class="table table-borderedx table-sm table-hover pastclocks col-sm-12">
       <thead class="thead-default">
-       <tr><th>Date</th><th>Source Pool ID</th><th>PTS ID</th><th>Type</th><th>Hours</th><th class="text-center">Edit/Copy/Delete</th></tr>
+       <tr><th>Date</th><th>Source Pool ID</th><th>PTS ID</th><th>Type</th><th>Hours</th><th class="text-center">Delete</th></tr>
       </thead>
       <tbody>
        <tr data-target="#viewmodal" data-toggle="modal" data-id="369">
         <th scope="row">04/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
        <tr data-target="#viewmodal" data-toggle="modal" data-id="246">
         <th scope="row">05/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
        <tr data-target="#viewmodal" data-toggle="modal" data-id="157">
         <th scope="row">06/12/1993</th><td>10001965</td><td>1100025011</td><td>Training</td><td>8</td>
-        <td><i class="fa fa-edit fa-lg"></i> <i class="fa fa-files-o fa-lg"></i> <i class="fa fa-remove fa-lg" style="color:red;"></i></td>
+        <td><i class="fa fa-remove fa-lg" style="color:red;"></i></td>
        </tr>
       </tbody>
      </table>
@@ -234,9 +233,6 @@
 
 
 
-
-
-
 <footer class="footer">
   <div class="footer-middle"><div class="container"><div class="row"><ul class="list-unstyled footerlist">
 
@@ -260,8 +256,6 @@
  $(document).ready(function() {
   $(".selectsearch").select2();
  });
- </script>
- <script type="text/javascript">
  var options = {};
 $(function() {
     $('input[name="start"]').daterangepicker({
@@ -283,6 +277,16 @@ $('#viewmodal').on('show.bs.modal', function (event) {
   var modal = $(this);
   modal.find('.uid').text(recipient);
 })
+
+function numCheck(obj){
+  console.log($('#' + obj.id));
+  if(obj.value < 0){
+    $('#' + obj.id).val(0);
+  }
+  if (obj.value > 24){
+    $('#' + obj.id).val(24);
+  }
+}
 </script>
 </body>
 </html>
